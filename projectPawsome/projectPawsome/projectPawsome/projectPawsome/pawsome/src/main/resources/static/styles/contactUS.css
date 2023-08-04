@@ -1,0 +1,136 @@
+/* Reset some default styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    background-color: #f7f7f7;
+    margin: 0;
+    min-height: 100vh;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Header styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-direction: column;
+
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Add margin to separate the image and form elements */
+    margin-top: 10px;
+}
+
+/* Login container styles */
+.login-container, .container {
+    width: 95%;
+    max-width: 520px; /* Increase the max-width for a larger form */
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2, .container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #555;
+}
+
+/* Form group styles */
+.form-group {
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.form-group label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.form-group input[type="name"],
+.form-group input[type="email"] {
+    width: 100%;
+    padding: 12px; /* Increase the padding for larger input fields */
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #555;
+    /* Limit the maximum width of the input fields */
+    max-width: 480px; /* Increase the max-width for larger input fields */
+}
+
+.form-group input[type="message"] {
+    width: 100%;
+    padding: 12px; /* Increase the padding for larger input fields */
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #555;
+    /* Limit the maximum width of the input fields */
+    max-width: 480px; /* Increase the max-width for larger input fields */
+}
+
+/* Button row styles */
+.button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.button-row button {
+    padding: 12px 30px; /* Increase the padding for larger buttons */
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+}
+
+.button-row button:first-child {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.button-row button:last-child {
+    background-color: #f25c5c;
+    color: #fff;
+}
+
+.button-row button:hover {
+    opacity: 0.9;
+}
+
+/* Signup link styles */
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Question styles */
+.question {
+    font-size: 70px;
+}

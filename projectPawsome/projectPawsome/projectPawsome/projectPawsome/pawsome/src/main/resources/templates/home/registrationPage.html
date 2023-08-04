@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link rel="stylesheet" th:href="@{/styles/registrationPage.css}">
+</head>
+<body>
+
+<form class="container" method="post" th:action="@{register}" id="registrationForm" th:value="${user.id}"
+      onsubmit="return validateForm()">
+
+    <header>
+        <img th:src="@{/images/logo.png}" alt="PawsomeCompanionsLogo" width="550" height="250">
+    </header>
+
+    <div class="form-group">
+        <h2>Create an Account</h2>
+        <div class="input-row">
+            <div class="input-col">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" th:value="${user.firstName}" required>
+            </div>
+            <div class="input-col">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" th:value="${user.lastName}" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-row">
+            <div class="input-col">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" th:field="${user.phone}" required>
+            </div>
+            <div class="input-col">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" th:value="${user.email}" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="street">Street:</label>
+        <input type="text" id="street" name="street" th:value="${user.street}" required>
+    </div>
+
+    <div class="form-group">
+        <div class="input-row">
+            <div class="input-col">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" th:value="${user.city}" required>
+            </div>
+            <div class="input-col">
+                <label for="postalCode">Postal Code:</label>
+                <input type="text" id="postalCode" name="postalCode" th:value="${user.postalCode}" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-row">
+            <div class="input-col">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" th:value="${user.password}" required>
+            </div>
+            <div class="input-col">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-row">
+            <div class="input-col">
+                <label for="dogOwner">Dog Owner</label>
+                <input type="radio" id="dogOwner" name="userAccount" th:field="${user.account}" th:value="Owner"
+                       required>
+            </div>
+            <div class="input-col">
+                <label for="dogRenter">Dog Renter</label>
+                <input type="radio" id="dogRenter" name="userAccount" th:field="${user.account}" th:value="Renter"
+                       required>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <input type="checkbox" th:field="${user.enabled}" required>
+            I agree to the terms and conditions
+        </label>
+    </div>
+
+    <div class="button-row">
+        <button type="submit" id="registerButton">Register</button>
+        <button type="button" onclick="window.location.href='/';">Return</button>
+    </div>
+</form>
+</body>
+</html>
+
+<script>
+    function validateForm() {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const city = document.getElementById('city').value;
+        const postalCode = document.getElementById('postalCode').value;
+
+        if (password !== confirmPassword) {
+            alert('Passwords do not match. Please re-enter your password.');
+            return false;
+        }
+
+        const phoneRegex = /^\d{10}$/;
+        if (!phoneRegex.test(phoneNumber)) {
+            alert('Please enter a valid 10-digit phone number.');
+            return false;
+        }
+
+        const nameRegex = /^[A-Za-z]+$/;
+        if (!nameRegex.test(firstName)) {
+            alert('First name should contain only text (letters).');
+            return false;
+        }
+
+        if (!nameRegex.test(lastName)) {
+            alert('Last name should contain only text (letters).');
+            return false;
+        }
+
+        const cityRegex = /^[A-Za-z ]+$/;
+        if (!cityRegex.test(city)) {
+            alert('City should contain only text (letters).');
+            return false;
+        }
+
+        const zipRegex = /^[A-Za-z0-9]{6}$/;
+        if (!zipRegex.test(postalCode)) {
+            alert('Postal code should contain 6 characters (letters and digits).');
+            return false;
+        }
+
+        return true;
+    }
+</script>

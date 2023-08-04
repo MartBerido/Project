@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Owner Page</title>
+    <link rel="stylesheet" th:href="@{/styles/owner.css}">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img th:src="@{/images/logo.png}" alt="PawsomeCompanionsLogo" width="200" height="40">
+    </div>
+    <div class="welcome">Welcome Owner!</div>
+    <div class="header-links">
+        <ul class="text-list-left">
+            <li class="text-item"><a th:href="@{/owner/addDog}">Add a New Dog</a></li>
+            <li class="text-item"><a th:href="@{/login}">Log Out</a></li>
+        </ul>
+    </div>
+</header>
+
+
+<div class="your-list">
+    <h2>Your List</h2>
+    <div th:if="${dogs.isEmpty()}">
+        <p>Your dog list is empty</p>
+    </div>
+</div>
+
+<div class="dog-list" th:if="${not dogs.isEmpty()}">
+    <div th:each="dog : ${dogs}" class="dog-card">
+        <div class="dog-info">
+            <h4>Dog Name: <span th:text="${dog.dogName}"></span></h4>
+            <h4>Dog Breed: <span th:text="${dog.dogBreed}"></span></h4>
+            <h4>Dog Age: <span th:text="${dog.dogAge}"></span></h4>
+            <span th:class="${dog.available} ? 'yes' : 'no'">
+                <span th:if="${dog.available}">Available</span>
+                <span th:unless="${dog.available}">Not Available</span>
+            </span>
+            <span th:class="${dog.payed} ? 'yes' : 'no'">
+                <span th:if="${dog.payed}">Paid</span>
+                <span th:unless="${dog.payed}">Available for Renting</span>
+            </span>
+        </div>
+        <div class="dog-actions">
+            <a th:href="@{/owner/{id}/edit(id=${dog.id})}">Edit</a>
+            <a th:href="@{/owner/{id}/delete(id=${dog.id})}">Delete</a>
+        </div>
+        <br/>
+    </div>
+</div>
+
+
+</body>
+</html>

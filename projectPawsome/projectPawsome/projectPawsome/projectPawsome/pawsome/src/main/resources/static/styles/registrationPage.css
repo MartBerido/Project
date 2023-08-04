@@ -1,0 +1,148 @@
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Use min-height instead of height to ensure it takes the full viewport height */
+    margin: 0;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-direction: column; /* Add this line to stack the image and form elements */
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Add margin to separate the image and form elements */
+    margin-top: 10px;
+}
+
+/* Registration container styles */
+.container {
+    width: 95%; /* Adjust the width as needed */
+    max-width: 520px; /* Adjust the maximum width as needed */
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px; /* Adjust the font size as needed */
+    color: #555;
+}
+
+/* Form group styles */
+.form-group {
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.form-group label {
+    font-size: 18px; /* Adjust the font size as needed */
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    font-size: 20px; /* Adjust the font size as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #555;
+    /* Limit the maximum width of the input fields */
+    max-width: 480px;
+}
+
+/* Add spacing between input fields */
+.form-group .input-col {
+    margin-bottom: 10px;
+}
+
+/* Button row styles */
+.button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.button-row button {
+    padding: 12px 30px;
+    font-size: 16px; /* Adjust the font size as needed */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+}
+
+.button-row button:first-child {
+    background-color: #007bff;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.button-row button:last-child {
+    background-color: #f25c5c;
+    color: #fff;
+}
+
+.button-row button:hover {
+    opacity: 0.9;
+}
+
+/* Signup link styles */
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Center the form elements within the container */
+.form-group {
+    text-align: center;
+}
+
+/* Add some vertical spacing between form elements */
+.form-group .input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add spacing between first and last name fields */
+.form-group .input-row .input-col {
+    margin-right: 20px;
+}
+
+/* Add spacing between city and postal code fields */
+.form-group .input-row .input-col:last-child {
+    margin-right: 20px;
+}
+
+/* Add spacing between radio buttons and the checkbox */
+.form-group .input-row:last-child {
+    margin-top: 10px;
+}

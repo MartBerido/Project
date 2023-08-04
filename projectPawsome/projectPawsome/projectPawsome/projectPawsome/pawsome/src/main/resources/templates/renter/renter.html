@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Renter Page</title>
+    <link th:href="@{/styles/renter.css}" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img th:src="@{/images/logo.png}" alt="PawsomeCompanionsLogo" width="200" height="40">
+    </div>
+    <div class="welcome">Welcome Renter!</div>
+    <div class="header-links">
+        <ul class="text-list-left">
+            <li class="text-item"><a th:href="@{/login}">Log Out</a></li>
+        </ul>
+    </div>
+</header>
+
+<div class="your-list">
+    <h2>Dog postings</h2>
+    <div th:if="${dogs.isEmpty()}">
+        <p>There is nothing to rent</p>
+    </div>
+</div>
+
+<div class="dog-list" th:if="${not dogs.isEmpty()}">
+    <div th:each="dog : ${dogs}" th:if="${dog.available}" class="dog-card">
+        <div class="dog-info">
+            <h4>Dog Name: <span th:text="${dog.dogName}"></span></h4>
+            <h4>Dog Breed: <span th:text="${dog.dogBreed}"></span></h4>
+            <h4>Dog Age: <span th:text="${dog.dogAge}"></span></h4>
+        </div>
+        <div class="dog-actions">
+            <a th:href="@{/payment/{id}(id=${dog.id})}">Rent a dog</a>
+        </div>
+    </div>
+</div>
+
+<div class="your-list">
+    <h2>Rented Dogs</h2>
+</div>
+
+<div class="dog-list" th:if="${not dogs.isEmpty()}">
+    <div th:each="dog : ${dogs}" th:if="${dog.payed}" class="dog-card">
+        <div class="dog-info">
+            <h4>Dog Name: <span th:text="${dog.dogName}"></span></h4>
+            <h4>Dog Breed: <span th:text="${dog.dogBreed}"></span></h4>
+            <h4>Dog Age: <span th:text="${dog.dogAge}"></span></h4>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Dog</title>
+    <link rel="stylesheet" th:href="@{/styles/editDog.css}">
+</head>
+<body>
+<div class="addDog-container">
+    <header>
+        <img th:src="@{/images/logo.png}" alt="PawsomeCompanionsLogo" width="460" height="100">
+    </header>
+
+    <form th:action="@{/owner/{id}/edit(id=${dog.id})}" th:object="${dog}" method="post" onsubmit="return validateForm()">
+        <div class="form-group">
+            <input type="hidden" th:field="*{id}">
+            <h2>Edit your Dog</h2>
+            <label for="dogName">Name:</label>
+            <input type="text" id="dogName" name="dogName" th:field="*{dogName}" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="dogBreed">Breed:</label>
+            <input type="text" id="dogBreed" name="dogBreed" th:field="*{dogBreed}" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="dogAge">Age:</label>
+            <input type="text" id="dogAge" name="dogAge" th:field="*{dogAge}" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="available">Available:</label>
+            <input type="checkbox" id="available" name="available" th:field="*{available}">
+        </div>
+        <br>
+        <div class="form-group button-row">
+            <button type="submit" class="btn btn-primary">Update Dog</button>
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='/owner';">Return</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+<script>
+    function validateForm() {
+
+        const dogName = document.getElementById("dogName").value;
+        const dogBreed = document.getElementById("dogBreed").value;
+        const dogAge = document.getElementById("dogAge").value;
+
+        const namePattern = /^[A-Za-z\s]+$/;
+        const agePattern = /^\d{1,2}$/;
+
+        if (!namePattern.test(dogName)) {
+            alert("Name should contain only text (letters and spaces).");
+            return false;
+        }
+
+        if (!namePattern.test(dogBreed)) {
+            alert("Breed should contain only text (letters and spaces).");
+            return false;
+        }
+
+        if (!agePattern.test(dogAge)) {
+            alert("Age should be 1 or 2 digits.");
+            return false;
+        }
+
+        return true;
+    }
+</script>

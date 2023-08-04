@@ -1,0 +1,138 @@
+/* owner.css */
+
+/* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body, header, nav, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Header Styles */
+header {
+    margin: 30px;
+    height: 130px;
+    line-height: 100px;
+    padding: 0 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+.text-list-left {
+    display: flex;
+    align-items: center;
+}
+
+.text-list-left .text-item {
+    margin-left: 10px;
+}
+
+.text-item a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.text-item a:hover {
+    background-color: #0056b3;
+}
+
+/* Dog List Styles */
+.dog-list-container {
+    display: flex;
+}
+
+.your-list,
+.rented-list {
+    flex: 1;
+    margin: 30px;
+    width: 50%;
+}
+
+.dog-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.your-list h2,
+.rented-list h2,
+p {
+    margin: 0;
+}
+
+.dog-card {
+    width: 200px;
+    margin: 30px;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dog-card h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.dog-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.dog-card .yes {
+    color: green;
+}
+
+.dog-card .no {
+    color: red;
+}
+
+.dog-actions {
+    margin-top: 10px;
+}
+
+.dog-actions a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    margin-right: 5px;
+}
